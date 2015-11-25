@@ -1,0 +1,71 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+<link href="StyleSheet.css" rel="stylesheet" />
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head runat="server">
+
+    </head>
+<body onload="startTime()">
+    <form id="form1" runat="server">
+    <div>
+
+ <marquee>Mikes Part Allergens Project</marquee>
+        <br /> 
+
+ <script type="text/javascript">
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+// add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('MyClock').innerHTML=h+":"+m+":"+s;
+t=setTimeout('startTime()',500);
+}
+
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}
+</script>
+
+
+<div id="Containerwhole">			
+
+<div class="middle_box">
+     <div style="position: absolute; margin-top: 70px; margin-left: 114px; "> <asp:Label ID="LblHeader" runat="server" Font-Bold="True" ForeColor="#AE11AA"></asp:Label> </div>
+  
+<div ul id="navbar">
+	<li><a href="Default.aspx" class="nav" accesskey="1" title="Raw Materials">Raw Materials</a></li>
+	<li><a href="Default2.aspx" class="nav" accesskey="2" title="Finished Products">Finished Products</a></li>
+    <li><a href="Default3.aspx" class="nav" accesskey="3" title="Add Process">Add Process</a></li>
+    <li><a href="Default4.aspx" class="nav" accesskey="4" title="Remove Process">Remove Process</a></li>
+</div ul>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <div id="MyClock">
+</div>
+<!-- My clock. -->  
+</div>
+
+    
+
+<div id="MainText">
+<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">      
+        </asp:ContentPlaceHolder>
+</div>
+</div> 
+    </div>
+    </form>
+</body>
+</html>
